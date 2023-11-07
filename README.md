@@ -349,5 +349,99 @@ They are not accessible from instances of the class or external code.
 Members marked as private are accessible only within the class where they are declared.
 They are not accessible from subclasses or external code.
 
+## Getters And Setters
+
+- you can use getters and setters to control access to the properties of a class. 
+ Getters and setters allow you to encapsulate the internal state of an object while providing controlled access and modification of its properties.
+
+```bash
 
 
+class Person {
+    private _name: string = '';
+
+    get name(): string {
+        return this._name;
+    }
+
+    set name(newName: string) {
+        if (newName.length >= 3) {
+            this._name = newName;
+        } else {
+            console.log('Name must be at least 3 characters long.');
+        }
+    }
+}
+
+const person = new Person();
+
+
+console.log(person.name); // ""
+
+
+person.name = 'John'; 
+person.name = 'Animesh';
+
+
+console.log(person.name); // "Animesh"
+
+```
+
+## Abstract Class 
+- An abstract class is a class that cannot be instantiated on its own and is typically used as a base class for other classes. Abstract classes allow you to define a common structure and behavior for a group of related classes while enforcing that specific methods must be implemented by derived classes.
+
+- Defining an Abstract Class:
+
+  ```bash
+  abstract class Shape {
+    abstract area(): number; 
+
+    abstract perimeter(): number;
+
+    color: string; 
+
+    constructor(color: string) {
+        this.color = color;
+    }
+
+    displayColor(): void {
+        console.log(`The color of this shape is ${this.color}`);
+    }
+}
+```
+- Implementing Derived Classes:
+
+```bash
+class Circle extends Shape {
+    constructor(radius: number, color: string) {
+        super(color); // Call the constructor of the base class
+    }
+
+    area(): number {
+        return Math.PI * this.radius * this.radius;
+    }
+
+    perimeter(): number {
+        return 2 * Math.PI * this.radius;
+    }
+
+    private radius: number = 0; // Private property for Circle
+}
+
+class Square extends Shape {
+    constructor(sideLength: number, color: string) {
+        super(color);
+    }
+
+    area(): number {
+        return this.sideLength * this.sideLength;
+    }
+
+    perimeter(): number {
+        return 4 * this.sideLength;
+    }
+
+    private sideLength: number = 0; // Private property for Square
+}
+
+```
