@@ -246,5 +246,108 @@ inside tsconfig.json file make following changes .
 
 ### OOPS
 
+## Classes in Typescript And Creating Instance of a Class
+ - A class in term of OOP is a blueprint for creating objects.
+
+  ```bash
+class Person{
+  
+  name:string = 'Animesh';
+  age:number = 23;
+  hobbies:string[] = ['Watching series' , 'coding' , 'Driving Cars'];
+  
+}
+
+// *creating instance of a class 
+
+const person1:Person = new Person(); 
+
+console.log(person1);
+```
+
+ ## Introducing constructor 
+```bash
+class Person{
+  
+  name:string;
+  age:number;
+  hobbies:string[];
+  
+  constructor (name:string,age:number,hobbies:string[]){ // this is constructor
+    this.name=name;
+    this.age=age;
+    this.hobbies=hobbies;
+  }
+  
+}
+
+// *creating instance of a class 
+
+const person1:Person = new Person('Animesh',23,['Reading','coding']); 
+
+const person2:Person = new Person('Gaurav',22,['Running','swiming']);
+
+console.log(person1);
+console.log(person2);
+```
+
+## Inheritance in Typescript
+- In TypeScript, inheritance is a fundamental concept in object-oriented programming that allows 
+- a new class (subclass or derived class) to inherit properties and methods from an existing class (base class or super class).
+  
+```bash
+
+//Defining Base Class
+class Animal {
+    constructor(public name: string) {}
+    
+    // Method in the base class
+    speak(): void {
+        console.log(`${this.name} makes a sound.`);
+    }
+}
+
+//Creating Subclass
+class Dog extends Animal {
+    // Additional properties specific to Dog
+    breed: string;
+    
+    constructor(name: string, breed: string) {
+        super(name); // Call the constructor of the base class
+        this.breed = breed;
+    }
+    
+    // Method specific to Dog
+    bark(): void {
+        console.log(`${this.name} barks loudly.`);
+    }
+}
+ 
+const myDog = new Dog("Buddy", "Golden Retriever");
+myDog.speak();
+console.log(`My dog's breed is ${myDog.breed}`); 
+myDog.bark(); 
+
+```
+
+
+## Access Modifiers
+
+- In TypeScript, just like in many other object-oriented programming languages, you can use access modifiers 
+ to control the visibility and accessibility of class members (properties and methods). 
+ TypeScript provides three main access modifiers: public, protected, and private.
+
+- Public:
+The public access modifier is the default if no access modifier is specified.
+Members marked as public are accessible from any part of your code, including instances of the class and external code that uses the class.
+
+- Protected:
+Members marked as protected are accessible within the class and its subclasses.
+They are not accessible from instances of the class or external code.
+
+- Private:
+Members marked as private are accessible only within the class where they are declared.
+They are not accessible from subclasses or external code.
+
 
 
