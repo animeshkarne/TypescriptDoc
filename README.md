@@ -194,8 +194,57 @@ const stringResult: string = logAndReturn<string>('Animesh');
 const booleanResult: boolean = logAndReturn<boolean>(true);
 ```
 
+## Generic Multiple Type Variables
+```bash
+function checkTypes<T,U>(value:T,value2:U):void{
+  console.log(typeof value)
+  console.log(typeof value2)
+}
 
+checkTypes<number,string>(100,'Animesh');
+checkTypes<string,number>('Animesh',18);
+```
 
+## Interface in Typescript
+TypeScript, an interface is a powerful feature that allows you to define a contract for an object's shape. 
+It specifies the properties and their types that an object must have to be considered of that particular interface type. 
+Interfaces are primarily used for type-checking during development and do not generate any JavaScript code at runtime.
+```bash
+interface Greet{
+  name:string,
+  age:number
+}
+
+const greet:Greet = {
+  name:'Animesh',
+  age:23
+}
+```
+
+## Watch Mode, rootDir, Lib, and More
+*watch mode :
+
+just create ts project : tsc --init 
+and then :
+```bash
+tsc --watch
+```
+for watch mode .
+
+*rootdir and outdir :
+
+inside tsconfig.json file make following changes .
+```bash
+"rootDir": "./src",
+"outDir": "./dist",  
+```
+
+*target : for newer update 
+```bash
+"target": "es2022",
+```
+
+### OOPS
 
 
 
